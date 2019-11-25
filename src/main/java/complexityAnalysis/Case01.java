@@ -57,4 +57,22 @@ public class Case01 {
 
         return sum_1 + sum_2 + sum_3;
     }
+
+    public static int cal4(int n) {
+        int ret = 0;
+        int i = 1;
+        for (; i < n; i++) {
+            ret = ret + f(i);
+        }
+        return ret;
+    }
+
+    public static int f(int n) {
+        int sum = 0;
+        int i = 1;
+        for (; i < n; i++) {
+            sum = sum + i;
+        }
+        return sum;
+    }
 }
