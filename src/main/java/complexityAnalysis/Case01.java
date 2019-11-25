@@ -105,21 +105,62 @@ public class Case01 {
     public static int cal6(int m, int n) {
         int sum_1 = 0;
         int i = 1;
-        for (; i < m;i++)
+        for (; i < m;i++) {
+            sum_1 = sum_1 + i;
+        }
+        int sum_2 = 0;
+        int j = 1;
+        for (; j < n;j++) {
+            sum_2 = sum_2 + j;
+        }
+        return sum_1 + sum_2;
+    }
+
+    public static int find(int[] array, int n, int x) {
+        int i = 0;
+        int pos = -1;
+        for (; i < n; i++) {
+            if (array[i] == x)
+                pos = i;
+                break;
+        }
+        return pos;
+    }
+
+    public static void insert(int value) {
+        int[] array = new int[10];
+        int count = 0;
+
+        if (count == array.length) {
+            int sum = 0;
+            for (int i = 0; i < array.length; i++) {
+                sum = sum + array[i];
+            }
+            array[0] = sum;
+            count = 1;
+        }
+       array[count] = value;
+        count++;
+    }
+    // add函数时间复杂度分析
+    public static void add(int element) {
+        int[] array = new int[10];
+        int len = 10;
+        int i = 0;
+        // 往数组中添加一个元素
+        if (i > len) {// 数组空间不够了
+            // 重新申请一个2倍大小的数组空间
+            int[] new_array = new int[len * 2];
+            // 把原来array数组中的数据依次copy到new_array
+            for (int j = 0; j < len; j++) {
+                new_array[j] = array[j];
+            }
+            // new_array复制给array，array现在大小就是2倍len了
+            array = new_array;
+            len = len * 2;
+        }
+        array[i] = element;
+        i++;
     }
 
 }
-
-//    int cal(int m, int n) {
-//        int sum_1 = 0;
-//        int i = 1;
-//        for (; i < m; ++i) {
-//            sum_1 = sum_1 + i;
-//        }
-//        int sum_2 = 0;
-//        int j = 1;
-//        for (; j < n; ++j) {
-//            sum_2 = sum_2 + j;
-//        }
-//        return sum_1 + sum_2;
-//    }
